@@ -18,7 +18,7 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
     alias: {
       // Remember to keep in sync with `tsconfig.json`
-      "progress-smoother": path.resolve(__dirname, "../lib/src")
+      "progress-smoother": path.resolve(__dirname, "src")
     }
   },
   externals: nodeExternals(),
