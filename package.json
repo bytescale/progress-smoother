@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "dist/main.js",
   "types": "dist/index.d.ts",
-  "homepage": "https://upload.io/upload-js/progress-smoother",
+  "homepage": "https://github.com/upload-js/progress-smoother",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
