@@ -48,12 +48,13 @@ npm install progress-smoother
 const progress = new ProgressSmoother({
   // Required.
   total: 12345,
+  averageTimeBetweenUpdates: 5000,   // Estimated time between '.update()' calls in milliseconds.
+  saneLowerBoundRatePerSecond: 5000, // Estimated lowest throughput for a typical user, per second.
+  minUpdateDelta: 500,               // Estimated minimum delta between the values passed to '.update()' calls.
+  maxTimeUntilFirstUpdate: 6000,     // Estimated maximum time until the first '.update()' call is made.
 
   // Optional.
-  initialUpdate: {
-    minDelay: 500, // Minimum expected time before the first 'update' event.
-    maxSize: 1000  // Maximum expected size of the first 'update' event.
-  }
+  teardownTime: 2000                 // Latency your app introduces after requests (function will incorporate this).
 });
 
 // Report progress events:
@@ -62,8 +63,8 @@ progress.update(3201);
 ...
 progress.update(12345);
 
-// Get smoothed progress at any time (e.g. on a fixed interval):
-progress.smoothed(); // Returns 0..1
+// Get smoothed progress any time (e.g. on a fixed interval):
+progress.smoothedFactor(); // Returns 0..1
 ```
 
 
