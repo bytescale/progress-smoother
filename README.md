@@ -49,21 +49,21 @@ const { ProgressSmoother } = require("progress-smoother")
 
 const progress = ProgressSmoother({
   // Required.
-  total: 12345,
-  averageTimeBetweenUpdates: 5000,   // Estimated time between '.update()' calls in milliseconds.
-  saneLowerBoundRatePerSecond: 5000, // Estimated lowest throughput for a typical user, per second.
-  minUpdateDelta: 500,               // Estimated minimum delta between the values passed to '.update()' calls.
-  maxTimeUntilFirstUpdate: 6000,     // Estimated maximum time until the first '.update()' call is made.
+  maxValue: 12345,                  // Maximum value of your progress bar.
+  valueIncreaseRatePerSecond: 5000, // Estimated minimum throughput for '.setValue()' calls.
+  valueIncreaseDelta: 500,          // Estimated minimum delta between '.setValue()' calls.
+  averageTimeBetweenValues: 5000,   // Estimated mean time between '.setValue()' calls in milliseconds.
+  maxTimeUntilFirstValue: 6000,     // Estimated maximum time until the first '.setValue()' call is made.
 
   // Optional.
-  teardownTime: 2000                 // Latency your app introduces after requests (function will incorporate this).
+  teardownTime: 2000                // Latency your app introduces after 100% progress (the function incorporates it).
 });
 
 // Report progress events:
-progress.update(1025);
-progress.update(3201);
+progress.setValue(1025);
+progress.setValue(3201);
 ...
-progress.update(12345);
+progress.setValue(12345);
 
 // Get smoothed progress any time (e.g. on a fixed interval):
 progress.smoothedFactor(); // Returns 0..1

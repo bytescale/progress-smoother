@@ -1,8 +1,8 @@
 export interface ProgressSmootherConfig {
-  averageTimeBetweenUpdates: number;
-  maxTimeUntilFirstUpdate: number;
-  minUpdateDelta: number;
-  saneLowerBoundRatePerSecond: number;
+  averageTimeBetweenValues: number;
+  maxTimeUntilFirstValue: number;
+  maxValue: number;
   teardownTime?: number;
-  total: number;
+  valueIncreaseDelta: number;
+  valueIncreaseRatePerSecond: number;
 }

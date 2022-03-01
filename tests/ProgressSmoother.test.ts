@@ -9,16 +9,16 @@ describe("ProgressSmoother.smooth()", () => {
     const tickInterval = 100;
 
     const progress = ProgressSmoother({
-      total: totalSize,
-      averageTimeBetweenUpdates: tickInterval,
-      saneLowerBoundRatePerSecond: 5000,
-      minUpdateDelta: 500,
-      maxTimeUntilFirstUpdate: 6000
+      maxValue: totalSize,
+      averageTimeBetweenValues: tickInterval,
+      valueIncreaseRatePerSecond: 5000,
+      valueIncreaseDelta: 500,
+      maxTimeUntilFirstValue: 6000
     });
     const result = ticks.map(x => {
       const tickTime = now + x * tickInterval;
       if (x % ticksPerRealProgressEvent === 0) {
-        progress.update(totalSize * ((x + 1) / ticks.length) * 2, tickTime);
+        progress.setValue(totalSize * ((x + 1) / ticks.length) * 2, tickTime);
       }
       return progress.smoothedFactor(tickTime);
     });

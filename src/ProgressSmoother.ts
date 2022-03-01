@@ -5,10 +5,10 @@ import { ProgressSmootherType } from "progress-smoother/model/ProgressSmootherTy
 export function ProgressSmoother(config: ProgressSmootherConfig): ProgressSmootherType {
   const minFinishDuration = 1000; // If set to 0, the download with abruptly move to 100% on the final chunk. This way it smooths over 1000ms.
   const maxForecastFactor = 0.33; // How much to estimate without receiving a single chunk.
-  const minSetupTime: number = config.maxTimeUntilFirstUpdate ?? 0;
+  const minSetupTime: number = config.maxTimeUntilFirstValue ?? 0;
   const minTeardownTime: number = config.teardownTime ?? 0;
 
-  const { saneLowerBoundRatePerSecond, averageTimeBetweenUpdates, total, minUpdateDelta } = config;
+  const { valueIncreaseRatePerSecond, averageTimeBetweenValues, maxValue, valueIncreaseDelta } = config;
 
   let _lastReading: undefined | LastReading;
   let lastTimeMinus1: number = Date.now();
@@ -24,7 +24,7 @@ export function ProgressSmoother(config: ProgressSmootherConfig): ProgressSmooth
   }
 
   function hasFinished(lastReading: LastReading): boolean {
-    return lastReading.value === total;
+    return lastReading.value === maxValue;
   }
 
   function fromLastReading(lastReading: LastReading, now: number): number {
@@ -42,8 +42,8 @@ export function ProgressSmoother(config: ProgressSmootherConfig): ProgressSmooth
   }
 
   function forecastInitialValue(now: number): number {
-    const maxForecastSize = Math.min(minUpdateDelta, total * maxForecastFactor);
-    const maxForecastTransferTime = (maxForecastSize / saneLowerBoundRatePerSecond) * 1000;
+    const maxForecastSize = Math.min(valueIncreaseDelta, maxValue * maxForecastFactor);
+    const maxForecastTransferTime = (maxForecastSize / valueIncreaseRatePerSecond) * 1000;
     const maxTwiddleTime = minSetupTime + maxForecastTransferTime;
     const millisElapsed = now - lastTimeMinus1;
     const percentageIntoTwiddleTime = millisElapsed / maxTwiddleTime;
@@ -53,7 +53,7 @@ export function ProgressSmoother(config: ProgressSmootherConfig): ProgressSmooth
 
   function alpha(now: number, lastTime: number): number {
     const alphaMagicNumber = 3.5; // This just seems to work best, from playing around.
-    return 1 - Math.exp(-(now - lastTime) / (averageTimeBetweenUpdates * alphaMagicNumber));
+    return 1 - Math.exp(-(now - lastTime) / (averageTimeBetweenValues * alphaMagicNumber));
   }
 
   function calculateEMA(value: number, now: number, lastTime: number): number {
@@ -65,7 +65,7 @@ export function ProgressSmoother(config: ProgressSmootherConfig): ProgressSmooth
     return x * x;
   }
 
-  function update(current: number, nowMaybe?: number): void {
+  function setValue(value: number, nowMaybe?: number): void {
     if (_lastReading !== undefined) {
       if (hasFinished(_lastReading)) {
         return;
@@ -77,7 +77,7 @@ export function ProgressSmoother(config: ProgressSmootherConfig): ProgressSmooth
 
     _lastReading = {
       time: nowMaybe ?? Date.now(),
-      value: Math.min(current, total)
+      value: Math.min(value, maxValue)
     };
   }
 
@@ -94,11 +94,11 @@ export function ProgressSmoother(config: ProgressSmootherConfig): ProgressSmooth
   }
 
   function smoothedFactor(nowMaybe?: number): number {
-    return smoothedValue(nowMaybe) / total;
+    return smoothedValue(nowMaybe) / maxValue;
   }
 
   return {
-    update,
+    setValue,
     smoothedValue,
     smoothedFactor
   };
