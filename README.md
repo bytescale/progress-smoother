@@ -18,7 +18,7 @@
   </a>
 
   <a href="https://www.npmjs.com/package/progress-smoother">
-    <img src="https://img.shields.io/npm/dt/upload-js?color=%234ba0f6" />
+    <img src="https://img.shields.io/npm/dt/progress-smoother?color=%234ba0f6" />
   </a>
   <br/>
 
@@ -27,7 +27,7 @@
   </a>
 
   <a href="https://github.com/upload-js/progress-smoother/actions/workflows/ci.yml">
-    <img src="https://img.shields.io/npms-io/maintenance-score/upload-js?color=4ba0f6" />
+    <img src="https://img.shields.io/npms-io/maintenance-score/progress-smoother?color=4ba0f6" />
   </a>
 
   <a target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fupload-js%2Fprogress-smoother&via=UploadJS&text=I%20just%20found%20%22progress-smoother%22%20on%20NPM%20%E2%80%94%20a%20nice%20smoothing%20function%20to%20use%20in%20progress%20bars.&hashtags=javascript%2Copensource%2Cjs%2Cwebdev%2Cdevelopers">
