@@ -1,6 +1,6 @@
 {
   "name": "progress-smoother",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "Upload <hello@upload.io> (https://upload.io)",
   "description": "Smoothing function for progress bars (e.g. upload, download, etc.)",
   "license": "MIT",
