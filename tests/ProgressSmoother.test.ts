@@ -8,7 +8,7 @@ describe("ProgressSmoother.smooth()", () => {
     const totalSize = 1000;
     const tickInterval = 100;
 
-    const progress = new ProgressSmoother({
+    const progress = ProgressSmoother({
       total: totalSize,
       averageTimeBetweenUpdates: tickInterval,
       saneLowerBoundRatePerSecond: 5000,

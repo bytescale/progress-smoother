@@ -6,7 +6,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/upload-js/progress-smoother/">
-    <img src="https://img.shields.io/badge/gzipped-7%20kb-4ba0f6" />
+    <img src="https://img.shields.io/badge/gzipped-743%20Bytes-4ba0f6" />
   </a>
 
   <a href="https://www.npmjs.com/package/progress-smoother">
@@ -45,7 +45,9 @@ npm install progress-smoother
 ## Usage
 
 ```javascript
-const progress = new ProgressSmoother({
+const { ProgressSmoother } = require("progress-smoother")
+
+const progress = ProgressSmoother({
   // Required.
   total: 12345,
   averageTimeBetweenUpdates: 5000,   // Estimated time between '.update()' calls in milliseconds.
