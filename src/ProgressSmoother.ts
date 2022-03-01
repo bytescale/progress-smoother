@@ -5,7 +5,7 @@ import { ProgressSmootherType } from "progress-smoother/model/ProgressSmootherTy
 export function ProgressSmoother(config: ProgressSmootherConfig): ProgressSmootherType {
   const minFinishDuration = 1000; // If set to 0, the download with abruptly move to 100% on the final chunk. This way it smooths over 1000ms.
   const maxForecastFactor = 0.33; // How much to estimate without receiving a single chunk.
-  const minSetupTime: number = config.maxTimeUntilFirstValue ?? 0;
+  const minSetupTime: number = config.minDelayUntilFirstValue ?? 0;
   const minTeardownTime: number = config.teardownTime ?? 0;
 
   const { valueIncreaseRatePerSecond, averageTimeBetweenValues, maxValue, valueIncreaseDelta } = config;

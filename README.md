@@ -53,7 +53,7 @@ const progress = ProgressSmoother({
   valueIncreaseRatePerSecond: 5000, // Estimated minimum throughput for '.setValue()' calls.
   valueIncreaseDelta: 500,          // Estimated minimum delta between '.setValue()' calls.
   averageTimeBetweenValues: 5000,   // Estimated mean time between '.setValue()' calls in milliseconds.
-  maxTimeUntilFirstValue: 6000,     // Estimated maximum time until the first '.setValue()' call is made.
+  minDelayUntilFirstValue: 6000,    // Estimated minimum delay until the first '.setValue()' call is made.
 
   // Optional.
   teardownTime: 2000                // Latency your app introduces after 100% progress (the function incorporates it).

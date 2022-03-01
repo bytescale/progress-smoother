@@ -13,7 +13,7 @@ describe("ProgressSmoother.smooth()", () => {
       averageTimeBetweenValues: tickInterval,
       valueIncreaseRatePerSecond: 5000,
       valueIncreaseDelta: 500,
-      maxTimeUntilFirstValue: 6000
+      minDelayUntilFirstValue: 6000
     });
     const result = ticks.map(x => {
       const tickTime = now + x * tickInterval;
