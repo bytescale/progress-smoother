@@ -16,7 +16,7 @@
     "url": "https://github.com/upload-js/progress-smoother/issues"
   },
   "files": [
-    "*"
+    "/dist/*"
   ],
   "keywords": [
     "smoothing",
