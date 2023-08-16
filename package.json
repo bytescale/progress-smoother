@@ -1,6 +1,6 @@
 {
   "name": "progress-smoother",
-  "version": "1.5.0",
+  "version": "1.7.0",
   "author": "Bytescale <hello@bytescale.com> (https://www.bytescale.com)",
   "description": "Smoothing function for progress bars (e.g. upload, download, etc.)",
   "license": "MIT",
