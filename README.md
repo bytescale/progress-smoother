@@ -5,7 +5,7 @@
 <p align="center"><b>Smoothing Function for Progress Bars</b></p>
 <br/>
 <p align="center">
-  <a href="https://github.com/upload-js/progress-smoother/">
+  <a href="https://github.com/bytescale/progress-smoother/">
     <img src="https://img.shields.io/badge/gzipped-743%20Bytes-4ba0f6" />
   </a>
 
@@ -13,7 +13,7 @@
     <img src="https://img.shields.io/badge/progress--smoother-npm-4ba0f6" />
   </a>
 
-  <a href="https://github.com/upload-js/progress-smoother/actions/workflows/ci.yml">
+  <a href="https://github.com/bytescale/progress-smoother/actions/workflows/ci.yml">
     <img src="https://img.shields.io/badge/build-passing-4ba0f6" />
   </a>
 
@@ -26,7 +26,7 @@
     <img src="https://img.shields.io/badge/TypeScript-included-4ba0f6" />
   </a>
 
-  <a href="https://github.com/upload-js/progress-smoother/actions/workflows/ci.yml">
+  <a href="https://github.com/bytescale/progress-smoother/actions/workflows/ci.yml">
     <img src="https://img.shields.io/npms-io/maintenance-score/progress-smoother?color=4ba0f6" />
   </a>
 
@@ -74,7 +74,7 @@ progress.smoothedFactor(); // Returns 0..1
 
 If you would like to contribute to `progress-smoother`:
 
-1. Add a [GitHub Star](https://github.com/upload-js/progress-smoother/stargazers) to the project (if you're feeling generous!).
+1. Add a [GitHub Star](https://github.com/bytescale/progress-smoother/stargazers) to the project (if you're feeling generous!).
 2. Determine whether you're raising a bug, feature request or question.
 3. Raise your issue or PR. 🚀
 
